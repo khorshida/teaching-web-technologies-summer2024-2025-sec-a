@@ -7,19 +7,56 @@
 
 <h1>Login</h1>
 Username:<br>
-<input type="text" value="">
+<input type="text" value="" id="username">
 <br>
+<p id="msg"></p>
 Password:<br>
-<input type="password"><br>
+<input type="password" id="password" value=""><br>
+<p id="msg1"></p>
+
 
 Remember me:<input type="checkbox" checked=""><br>
 
-<button>Login</button>
+<input type="button" value="Submit" onclick="change();passvalidation();">
 <p>Dont have an account?</p>
 <a href="registration.html">
   <button>Create an account</button>
+
 </a>
 
+
+<script>
+
+  function change(){
+    let username =document.getElementById('username').value;
+    if(username==""){
+      let msg=document.getElementById('msg');
+      msg.style.color="red";
+      msg.innerHTML="please type username first!";
+
+    }
+    else{
+       let head = document.getElementsByTagName('h1')[0];
+                    head.innerHTML = "Welcome";
+                    document.getElementById('msg').innerHTML = "";
+    }
+
+  }
+
+  function passvalidation(){
+    let password=document.getElementById('password').value;
+
+    if(password=="" && password<8){
+      let msg1=document.getElementById('msg1');
+      msg.style.color="red";
+       msg.innerHTML="Please enter password!";
+    }
+    else{
+      document.getElementById('msg1').innerHTML = "";
+
+    }
+  }
+</script>
 
 </body>
 </html>
